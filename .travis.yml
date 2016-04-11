@@ -3,7 +3,15 @@ sudo: required
 language: ruby
 
 services:
-  - docker
+  - postgresql
+  - redis
+
+before_script:
+  - gem install bundler
+  - bundle install
+  - RACK_ENV=test rake db:create
+  - RACK_ENV=test rake db:migrate
 
 script:
-  - docker-compose -f docker/docker-compose.ci.yml up
+  - rspec
+
