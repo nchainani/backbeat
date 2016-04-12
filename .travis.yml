@@ -14,5 +14,5 @@ before_script:
   - RACK_ENV=test bundle exec rake db:migrate
 
 script:
-  - rspec
+  - bundle exec rspec spec
 
