@@ -9,7 +9,7 @@ services:
 before_script:
   - gem install bundler
   - bundle install
-  - psql -c "psql -c \"CREATE ROLE backbeat with SUPERUSER LOGIN PASSWORD 'backbeat'\";" -U postgres
+  - psql -c "CREATE ROLE backbeat with SUPERUSER LOGIN PASSWORD 'backbeat';" -U postgres
   - RACK_ENV=test bundle exec rake db:create
   - RACK_ENV=test bundle exec rake db:migrate
 
